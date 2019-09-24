@@ -1,12 +1,12 @@
 //const imagemGatinho = document.getElementsByClassName('item')
 
-const imagemGatinho = document.querySelectorAll('.item__imagem')
+/* const imagemGatinho = document.querySelectorAll('.item__imagem')
 
 for (let i = 0; i < imagemGatinho.length; i++){
         imagemGatinho[i].addEventListener('click', function(){
             imagemGatinho[i].classList.add('remover')
         })
-}
+}*/
 
 // Outra maneira
 
@@ -20,3 +20,15 @@ imagemGatinho.forEach(function(gato){
 
 //target é para quem foi direcionado o click
 //classList é uma lista com todas as classes do elemento
+
+const imagemGatinho = document.querySelectorAll('.item__imagem')
+
+for (let i = 0; i < imagemGatinho.length; i++){
+    imagemGatinho[i].addEventListener('click', function(){
+        if (imagemGatinho[i].classList.contains('remover')){
+            imagemGatinho[i].classList.remove('remover')
+        } else{
+            imagemGatinho[i].classList.add('remover')
+        }
+    })
+}

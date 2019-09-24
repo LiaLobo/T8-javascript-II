@@ -21,7 +21,7 @@ for (let i = 0; i < alunas.length; i++){
     listaDesordenada.appendChild(item)
 }
 
-let soma = 0
+let soma = 0 
 
 const text = document.querySelector('.subtitulo')
 
