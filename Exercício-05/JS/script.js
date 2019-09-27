@@ -22,14 +22,69 @@ for (let prop in livros){
     let titulo = document.createElement('h3')
     listaCatalogo.appendChild(titulo)
     titulo.textContent = livros[prop]['titulo']
+    titulo.classList.add('livro__titulo')
 
     let autor = document.createElement('li')
     listaCatalogo.appendChild(autor)
     autor.textContent = livros[prop]['quemEscreveu']
+    autor.classList.add('livro__autoria')
 
     let linkLivro = document.createElement('a')
     listaCatalogo.appendChild(linkLivro)
-    linkLivro.textContent = livros[prop]['link']
+    linkLivro.textContent = 'Ler'
     linkLivro.setAttribute('href', livros['link'])
     linkLivro.setAttribute('target', '_blank')
+    linkLivro.classList.add('livro__link')
+
+    let botaoLido = document.createElement('button')
+    listaCatalogo.appendChild(botaoLido)
+    botaoLido.textContent = 'Não lido'
+    botaoLido.classList.add('botao-lido')
+
+    botaoLido.addEventListener('click', function(){
+        if (titulo.classList.contains('livro__titulo--lido')){
+            titulo.classList.remove('livro__titulo--lido')
+            botaoLido.textContent = 'Não lido'
+            botaoLido.classList.remove('botao__Lido')
+        } else{
+            titulo.classList.add('livro__titulo--lido')
+            botaoLido.textContent = 'Já lido'
+            botaoLido.classList.add('botao__Lido')
+        }
+     })
+
+
+    //-----OUTRA FORMA DE FAZER O FUNCIONAMENTO DO BOTÃO-----
+    //botaoLido.addEventListener('click', function(){
+    //titulo.classList.remove('livro__titulo--nao-lido')
+    //titulo.classList.add('livro__titulo--lido')
+    //})
+    // let botaoDesfaz = document.createElement('button')
+    // listaCatalogo.appendChild(botaoDesfaz)
+    // botaoDesfaz.textContent = 'Desfazer'
+    // botaoDesfaz.classList.add('botao-desfazer')
+
+    // botaoDesfaz.addEventListener('click', function(){
+    //     titulo.classList.remove('livro__titulo--lido')
+    //     titulo.classList.add('livro__titulo--nao-lido')
+    // }) 
+
+    //-----OUTRA FORMA DE FAZER O FUNCIONAMENTO DO BOTÃO-----
+    //botaoLido.addEventListener('click', function(){
+    //    titulo.classList.add('livro__titulo--lido')
+    //})
+    //botaoDesfaz.addEventListener('click', function(){
+    //    titulo.classList.remove('livro__titulo--lido')
+    //})
+
+    //-----OUTRA FORMA DE FAZER O FUNCIONAMENTO DO BOTÃO----
+    //Para fazer com condicional if temos que criar somente umm botão, que é o de 'Já li':
+    // botaoLido.addEventListener('click', function(){
+    //     if (titulo.classList.contains('livro__titulo--lido')){
+    //         titulo.classList.remove('livro__titulo--lido')
+    //     } else{
+    //         titulo.classList.add('livro__titulo--lido')
+    //     }
+    // })
 }
+
